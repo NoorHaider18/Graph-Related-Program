@@ -90,7 +90,7 @@ int added(int *list, int lcount, int nid)
 // - list: Array to store the path of node IDs
 // - clist: Array to store the costs associated with the path
 // - lcount: Current number of nodes in the path
-void findpath(struct Node *p, int count, int start, int end, int *list, int *clist, int lcount)
+void findPath(struct Node *p, int count, int start, int end, int *list, int *clist, int lcount)
 {
     int index = 0, i = 0;
 
@@ -131,7 +131,7 @@ void findpath(struct Node *p, int count, int start, int end, int *list, int *cli
             clist[lcount] = p[index].costs[i];
             lcount++;
 
-            findpath(p, count, p[index].adjs[i], end, list, clist, lcount);
+            findPath(p, count, p[index].adjs[i], end, list, clist, lcount);
             lcount--;
         }
     }
@@ -172,7 +172,7 @@ int main()
     lcount = 1;
 
     // Find and print the path between the start and end nodes
-    findpath(nodes, nodecount, start, end, list, clist, lcount);
+    findPath(nodes, nodecount, start, end, list, clist, lcount);
 
     return 0;
 }
